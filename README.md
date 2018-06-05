@@ -1,25 +1,25 @@
+# ReduxSimpleStarter
 
-# Socket.IO Chat
+Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
-A simple chat demo for socket.io
+### Getting Started
 
-## How to use
+There are two methods for getting started with this repo.
+
+#### Familiar with Git?
+Checkout this repo, install dependencies, then start the gulp process with the following:
 
 ```
-$ cd socket.io
-$ npm install
-$ cd examples/chat
-$ npm install
-$ npm start
+> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
+> cd ReduxSimpleStarter
+> npm install
+> npm start
 ```
 
-And point your browser to `http://localhost:3000`. Optionally, specify
-a port by supplying the `PORT` env variable.
+#### Not Familiar with Git?
+Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
-## Features
-
-- Multiple users can join a chat room by each entering a unique username
-on website load.
-- Users can type chat messages to the chat room.
-- A notification is sent to all users when a user joins or leaves
-the chatroom.
+```
+> npm install
+> npm start
+```
