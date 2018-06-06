@@ -6,7 +6,7 @@ class ChatList extends Component {
 
     render() {
         return (
-            <div className="col col-md-3 border" style={{"height":"95vh"}}>
+            <div className="col col-md-3 chat-scrollable" style={{"height":"95vh"}}>
                 <ul>
                     <ChatListItem/>
                     <ChatListItem />
