@@ -6,11 +6,15 @@ class ChatWindow extends Component {
             <div className="col col-md-6 no-gutters border">
                 <div class="d-flex flex-column h-100">
                     <div className="d-flex flex-column h-100 flex-grow">
-                        <div className="chat-title border">
-                            <h4 style={{"margin-top":"10px"}}>Conversation with {/*insert customer name here*/}Name</h4>
-                            <button className="btn-sm btn-outline-danger" type="button">End Conversation</button>
+                        <div className="chat-title">
+                            <h4 className="title" style={{ "float": "left" }}>Conversation with {/*insert customer name here*/}Name</h4>
+                            <button className="btn-sm btn-outline-danger title" style={{"float":"right"}} type="button">End Conversation</button>
                         </div>
-                        <div className="h-100 flex-grow">
+                        <div>
+                            <p> Summary of last 10 lines of conversation goes here</p>
+                            <hr/>
+                        </div>
+                        <div className="h-100 flex-grow chat-body">
                             <ul>
                             </ul>
                         </div>

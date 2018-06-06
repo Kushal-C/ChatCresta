@@ -3,17 +3,16 @@ import React, { Component } from 'react';
 class ChatListItem extends Component {
     render() {
         return (
-            <li className="list-item border">
-                <div className="">
-                    <div>
+            <li className="list-item">
+                <div>
+                    <div className="same-line">
                         <h6>FirstName Last</h6>
                         <p>Sample chat text</p>
                     </div>
-                    <div>
-                        Time Spent Unanswered:
-                        {}
+                    <div className="same-line">
                     </div>
                 </div>
+                <hr/>
             </li>
         );
     }
