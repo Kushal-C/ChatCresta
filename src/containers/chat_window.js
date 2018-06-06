@@ -8,14 +8,14 @@ class ChatWindow extends Component {
                     <div className="d-flex flex-column h-100 flex-grow">
                         <div className="chat-title">
                             <h4 className="title" style={{ "float": "left" }}>Conversation with {/*insert customer name here*/}Name</h4>
-                            <button className="btn-sm btn-outline-danger title" style={{"float":"right"}} type="button">End Conversation</button>
+                            <button className="btn-sm btn-outline-danger title" style={{ "float": "right" }} type="button">End Conversation</button>
                         </div>
                         <div>
                             <p> Summary of last 10 lines of conversation goes here</p>
-                            <hr/>
+                            <hr />
                         </div>
                         <div className="flex-grow chat-body">
-                            <ul style={{ "width": "100%", "height": "100%"}}className="chat-body">
+                            <ul style={{ "width": "100%", "height": "100%" }} className="chat-body">
                                 <li>
                                     <div className="text-container-foreign">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porta sagittis dui, interdum faucibus felis pretium in. Donec dui tortor, congue id tortor id, mattis viverra nisl. </p>
