@@ -1,8 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import ChatListItem from '../components/chat_list_item';
 
 class ChatList extends Component {
+
+    constructor(props){
+        super(props);
+
+    }
+
+    renderList() {
+        return this.props.chats.map(((chat) => {
+            return (
+                <ChatListItem 
+                    key={chat.name}
+                    name={chat.name}
+                    summary={chat.summary}
+                />
+            );
+        }));
+    }
 
     render() {
         return (
@@ -10,13 +28,18 @@ class ChatList extends Component {
                 <h6 style={{ "margin-top": "20px", "text-align": "center" }}> Active Conversations </h6>
                 <hr />
                 <ul>
-                    <ChatListItem />
-                    <ChatListItem />
-                    <ChatListItem />
+                    {this.renderList()}
                 </ul>
             </div>
         );
     }
 }
 
-export default ChatList;
+function mapStateToProps(state){
+    //Whatever is returned here will show up as props inside of chat_list
+    return {
+        chats: state.chats
+    };
+}
+
+export default connect(mapStateToProps)(ChatList);
