@@ -41,6 +41,7 @@ class ChatWindow extends Component {
                                                 <div className="text-container">
                                                     <p>{message}</p>
                                                 </div>
+                                                <br/>
                                             </li>
                                         );
                                     }

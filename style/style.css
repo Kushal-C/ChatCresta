@@ -14,14 +14,17 @@ ul {
 }
 
 li {
-    list-style: none;
+    list-style-type: none;
     text-align: left;
     margin-top: 12px;
 }
 
+li div {
+    display: block;
+}
 .chat-body {
-    overflow: auto;
-    max-height: 75%;
+    overflow-y: scroll;
+    max-height: 75vh;
     padding: 0;
     margin: 0;
 }
@@ -31,7 +34,6 @@ li {
 }
 
 .chat-scrollable {
-    overflow: auto;
     height: 92vh;
     width: 100%;
 }
