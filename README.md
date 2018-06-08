@@ -2,11 +2,8 @@
 
 #### To Launch the application: 
 > git clone https://github.com/Kushal-C/ChatCresta.git
->
 > cd ChatCresta
->
 > npm install
->
 > npm start
 
 
