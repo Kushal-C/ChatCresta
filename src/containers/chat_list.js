@@ -40,7 +40,8 @@ class ChatList extends Component {
 function mapStateToProps(state){
     //Whatever is returned here will show up as props inside of chat_list
     return {
-        chats: state.chats
+        chats: state.chats,
+        activeChat: state.activeChat
     };
 }
 

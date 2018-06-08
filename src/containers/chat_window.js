@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
+import _ from 'lodash';
+
 import * as actionCreators from '../actions'
 import SendMessage from './message_send';
 
@@ -35,7 +37,7 @@ class ChatWindow extends Component {
                                 {this.props.chat.messages.map(({ message, sender }) => {
                                     if (sender == 0) {
                                         return (
-                                            <li key={message}>
+                                            <li key={_.uniqueId(message)}>
                                                 <div className="text-container">
                                                     <p>{message}</p>
                                                 </div>
@@ -44,7 +46,7 @@ class ChatWindow extends Component {
                                     }
                                     else {
                                         return (
-                                            <li key={message}>
+                                            <li key={_.uniqueId(message)}>
                                                 <div className="text-container-foreign">
                                                     <p>{message}</p>
                                                 </div>

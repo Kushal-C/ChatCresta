@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+
 import { updateChat } from '../actions/index';
 import PropTypes from "prop-types";
+
 
 class SendMessage extends Component {
 

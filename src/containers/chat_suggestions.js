@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateChat } from '../actions/index';
+import _ from 'lodash';
 import PropTypes from "prop-types";
 
 class ChatSuggestions extends Component {
@@ -8,18 +9,23 @@ class ChatSuggestions extends Component {
     constructor(props) {
         super(props);
         this.addSuggestion= this.addSuggestion.bind(this);
+        //Used for unique key bindings to avoid rendering errors
+        this.state = {
+            key: 0
+        };
 
     }
     renderSuggestions() {
         return this.props.chat.suggestions.map((suggestion) => {
             return (
-                <li key={suggestion} onClick={() => this.addSuggestion(suggestion)} className="text-container-foreign">
+                <li key={_.uniqueId} onClick={() => this.addSuggestion(suggestion)} className="text-container-foreign">
                     <p> {suggestion}</p>
                 </li>
             );
         });
     }
-    addSuggestion(suggestion){
+
+    addSuggestion(suggestion, value){
         let messages = { message: suggestion, sender: 0 };
         for (var i = 0; i < this.props.chats.chats.length; i++) {
             if (this.props.chats.chats[i].key == this.props.chat.key) {
