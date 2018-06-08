@@ -4,9 +4,6 @@ import { updateChat } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import PropTypes from "prop-types";
 
-
-
-
 class SendMessage extends Component {
 
     constructor(props) {
@@ -26,12 +23,14 @@ class SendMessage extends Component {
     onFormSubmit(event) {
         event.preventDefault();
         let messages = {message: this.state.currentMessage, sender: 0};
-        this.setState({currentMessage: ''});
         for(var i = 0; i < this.props.chats.chats.length; i++){
             if(this.props.chats.chats[i].key == this.props.chat.key){
                this.props.updateChat({i, messages});
             }
         }
+        //clear form
+        event.target.reset();
+        
     }
 
     render() {
@@ -41,7 +40,7 @@ class SendMessage extends Component {
                 <form className="input-group flex-grow chat-send" onSubmit={this.onFormSubmit}>
                     <input type="text" className="form-control" placeholder="Enter message here..." value={this.state.currentMesage} onChange={this.onInputChange} />
                     <span className="input-group-btn">
-                       <button className="btn btn-outline-primary"  type="submit">Send</button>
+                       <button className="btn btn-outline-primary" type="submit">Send</button>
                     </span>
                 </form>
             </div>
