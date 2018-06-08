@@ -12,7 +12,7 @@ npm start
 Navigate to http://localhost:8080/ to view
 
 
-Explanation of Layout:
+**Explanation of Layout:**
 
 Left side is scrollable chat interface to select user to interface, comes with a timer to ensure that conversations can be contained within a certain timeframe. 
 
