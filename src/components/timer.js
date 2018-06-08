@@ -1,31 +1,40 @@
 import React, { Component } from 'react'
 
-
 class Timer extends Component {
-    constructor(props){
+
+    constructor(props) {
         super(props);
-        this.state = {
-            time: 0,
+        this.state = { currentCount: 0, isSelected: props.isSelected };
+    }
+
+    timer() {
+        if (!this.state.isSelected) {
+            this.setState({
+                currentCount: this.state.currentCount + 1
+            });
+            if (this.state.currentCount < 1) {
+                clearInterval(this.intervalId);
+            }
+        } 
+        else {
+            this.setState({currentCount: 0});
         }
     }
 
-    tick() {
-        this.setState((state) => ({ time: state.time + 1 }));
-        console.log(this.state.time);
-        this.render();
-    }
     componentDidMount() {
-        let timer = setInterval(this.tick(), 1000);
-        this.setState({ timer });
+        this.intervalId = setInterval(this.timer.bind(this), 1000);
     }
+
     componentWillUnmount() {
-        clearInterval(this.timer, this.state.time);
+        clearInterval(this.intervalId);
     }
+
     render() {
         return (
-            <div>Time Waiting: {this.state.timer}</div>
-        );
+            <div>
+                <p>Time spent on Conversation: {this.state.currentCount}</p>
+            </div>
+        )
     }
 }
-
 export default Timer;

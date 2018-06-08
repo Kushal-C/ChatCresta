@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
-import chatReducer from './reducer_chats';
-import activeChatReducer from './reducer_active_chat';
-
+import ChatReducer from './reducer_chats';
+import ActiveChat from './reducer_active_chat';
+import UpdateChat from './reducer_chat_update';
 //Export all reducers constants to avoid typos
-export const ACTIVE_CHAT ="ACTIVE_CHAT"; 
+export const CHAT_SELECTED ="CHAT_SELECTED";
+export const CHAT_UPDATED ="CHAT_UPDATED";
 
 const rootReducer = combineReducers({
-  chats: chatReducer
+  chats: ChatReducer,
+  activeChat : ActiveChat,
+  updateChat: UpdateChat
 });
 
 export default rootReducer;

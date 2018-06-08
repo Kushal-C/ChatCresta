@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {selectChat} from '../actions/index';
+import {bindActionCreators} from 'redux';
 
 import ChatListItem from '../components/chat_list_item';
 
@@ -7,16 +9,16 @@ class ChatList extends Component {
 
     constructor(props){
         super(props);
-
     }
 
     renderList() {
-        return this.props.chats.map(((chat) => {
+        return this.props.chats.chats.map(((chat) => {
             return (
                 <ChatListItem 
-                    key={chat.name}
+                    key={chat.key}
                     name={chat.name}
                     summary={chat.summary}
+                    onClick={() => this.props.selectChat(chat)}
                 />
             );
         }));
@@ -42,4 +44,8 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(mapStateToProps)(ChatList);
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({selectChat: selectChat}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatList);
