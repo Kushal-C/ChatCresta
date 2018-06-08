@@ -8,7 +8,8 @@ export default function (state = default_state, action) {
             let index = action.payload.index;
             let newState = {...state};
             newState.chats[index].messages.push(action.payload.message);
-            return newState;
+            console.log(Object.assign({}, ...state.chats[index], newState) == state);
+            return Object.assign({}, ...state.chats[index], newState);
         default:
             return state;
     }

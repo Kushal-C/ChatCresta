@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../actions'
 import SendMessage from './message_send';
 
 
 class ChatWindow extends Component {
+    componentWillUpdate(nextProps) {
+        if (nextProps.specificProperty !== this.props.specificProperty) {
+            this.render();
+        }
+    }
     render() {
         //Default state when state hasn't loaded yet.
         if (this.props.chat == null) {
@@ -49,7 +55,7 @@ class ChatWindow extends Component {
                             </ul>
 
                         </div>
-                        <SendMessage />
+                        <SendMessage/>
                     </div>
                 </div>
 
@@ -61,8 +67,14 @@ class ChatWindow extends Component {
 
 function mapStateToProps(state) {
     return {
-        chat: state.activeChat
+        chat: state.activeChat,
+        chats: state.chats,
+        updateChat: state.updateChat
     }
 }
 
-export default connect(mapStateToProps)(ChatWindow);
+function mapDispatchToProps(dispatch) {
+    return { actions: bindActionCreators(actionCreators, dispatch) }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ChatWindow);

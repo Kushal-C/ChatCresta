@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { updateChat } from '../actions/index';
-import { bindActionCreators } from 'redux';
 import PropTypes from "prop-types";
 
 class SendMessage extends Component {
@@ -26,6 +25,7 @@ class SendMessage extends Component {
         for(var i = 0; i < this.props.chats.chats.length; i++){
             if(this.props.chats.chats[i].key == this.props.chat.key){
                this.props.updateChat({i, messages});
+               this.props.action;
             }
         }
         //clear form
@@ -60,7 +60,6 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
     return {
         updateChat: (chat) => dispatch(updateChat(chat))
-        
     };
 };
 
